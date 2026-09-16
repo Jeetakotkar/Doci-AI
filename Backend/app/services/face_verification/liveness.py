@@ -1,30 +1,10 @@
-"""
-Liveness detection via challenge-response.
-
-Approach:
-- Frontend asks the user to do ONE of: blink, or turn head left/right.
-- Frontend sends a short burst of frames (e.g. 10-15 frames over ~1.5-2 sec) captured during the challenge.
-- We run mediapipe FaceMesh on each frame, track:
-    - Eye Aspect Ratio (EAR) over time -> detects a blink (EAR dips then recovers)
-    - Nose tip X position relative to face width -> detects head turn
-- A REAL person doing the challenge produces motion. A static photo held up to
-  the camera produces ~zero motion in these signals -> liveness fails.
-
-This deliberately does NOT try to be a full anti-spoofing deep model (texture/
-depth based). That's a valid v2 upgrade, but challenge-response is simpler,
-explainable to judges, and demoable live in front of them.
-"""
-
 from dataclasses import dataclass
 from enum import Enum
 import numpy as np
 import cv2
 import mediapipe as mp
 
-# NOTE: requires mediapipe==0.10.14 (pinned in requirements.txt).
-# Newer mediapipe (0.10.2x+) removed mp.solutions.face_mesh in favor of the
-# Tasks API (FaceLandmarker + downloadable .task model file). Stick to 0.10.14
-# unless you deliberately migrate — don't `pip install -U mediapipe` blindly.
+
 mp_face_mesh = mp.solutions.face_mesh
 
 # Landmark indices for mediapipe's 468-point face mesh
@@ -34,9 +14,9 @@ NOSE_TIP = 1
 LEFT_FACE_EDGE = 234
 RIGHT_FACE_EDGE = 454
 
-EAR_BLINK_THRESHOLD = 0.21       # below this = eyes considered closed
-EAR_DROP_MIN = 0.06              # min drop from baseline to count as a real blink
-HEAD_TURN_MIN_DELTA = 0.12       # min normalized nose-position shift to count as a turn
+EAR_BLINK_THRESHOLD = 0.21       
+EAR_DROP_MIN = 0.06              
+HEAD_TURN_MIN_DELTA = 0.12     
 
 
 class ChallengeType(str, Enum):
