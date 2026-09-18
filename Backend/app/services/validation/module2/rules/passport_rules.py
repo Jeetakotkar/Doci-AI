@@ -1,4 +1,4 @@
-from module2.schemas import RuleDefinition, Severity
+from app.services.validation.module2.schemas import RuleDefinition, Severity
 
 
 PASSPORT_RULES = [

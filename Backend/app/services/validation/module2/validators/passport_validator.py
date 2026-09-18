@@ -3,7 +3,7 @@
 from datetime import date, datetime
 from typing import Any
 
-from module2.schemas import (
+from app.services.validation.module2.schemas import (
     CheckStatus,
     OverallStatus,
     Severity,

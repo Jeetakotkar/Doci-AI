@@ -1,6 +1,6 @@
 import unittest
 
-from module2.validators.visa_validator import VisaValidator
+from app.services.validation.module2.validators.visa_validator import VisaValidator
 
 
 class TestVisaValidator(unittest.TestCase):

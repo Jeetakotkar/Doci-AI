@@ -1,6 +1,5 @@
-from module2.validators.passport_validator import PassportValidator
-from module2.validators.visa_validator import VisaValidator
-from module2.validators.aadhaar_validator import AadhaarValidator
+from app.services.validation.module2.validators.passport_validator import PassportValidator
+from app.services.validation.module2.validators.visa_validator import VisaValidator
 
 
 def run_validation(
@@ -19,10 +18,6 @@ def run_validation(
             input_data,
             passport_data
         )
-
-    if document_type == "AADHAAR":
-        validator = AadhaarValidator()
-        return validator.validate(input_data)
 
     return {
         "document_type": document_type,
