@@ -1,0 +1,106 @@
+.camera-box {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.camera-frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  background: var(--ink);
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.camera-frame.is-live {
+  border-color: var(--focus);
+}
+
+.camera-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scaleX(-1); /* mirror preview, like a mirror */
+  display: block;
+}
+
+.camera-captured-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.camera-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  text-align: center;
+  padding: var(--sp-4);
+  color: var(--slate-dim);
+}
+
+.camera-overlay-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid var(--line-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--slate-dim);
+  margin-bottom: var(--sp-1);
+}
+
+.camera-overlay-label {
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.camera-overlay-hint {
+  font-size: 12px;
+  color: var(--slate-dim);
+  max-width: 30ch;
+}
+
+.camera-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-3);
+}
+
+.camera-status-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.camera-status-live { color: var(--verified); }
+.camera-status-done { color: var(--slate); }
+
+.camera-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.camera-status-live .camera-dot {
+  animation: camera-pulse 1.4s ease-in-out infinite;
+}
+
+@keyframes camera-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}

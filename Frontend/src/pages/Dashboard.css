@@ -1,0 +1,66 @@
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--sp-4);
+}
+
+.stat-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-top: 2px solid var(--ink);
+  border-radius: var(--radius);
+  padding: var(--sp-4);
+}
+
+.stat-value {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  margin-bottom: var(--sp-1);
+}
+
+.stat-label {
+  font-size: var(--step--1);
+  color: var(--slate);
+}
+
+.stat-muted { color: var(--slate); }
+
+.card-list-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-4);
+}
+
+.table-link {
+  color: var(--focus);
+  font-weight: 600;
+  font-size: var(--step--1);
+}
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th {
+  text-align: left;
+  font-size: var(--step--1);
+  color: var(--slate);
+  font-weight: 500;
+  padding: var(--sp-2) var(--sp-3);
+  border-bottom: 1px solid var(--line);
+}
+
+.data-table td {
+  padding: var(--sp-3);
+  border-bottom: 1px solid var(--line);
+  font-size: var(--step--1);
+}
+
+.data-table tbody tr:last-child td { border-bottom: none; }
+.data-table tbody tr:hover { background: var(--paper); }
+
+@media (max-width: 1000px) {
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+}

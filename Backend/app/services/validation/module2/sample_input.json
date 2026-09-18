@@ -1,0 +1,25 @@
+{
+"document_type": "PASSPORT",
+"passport_number": "P1234567",
+"name": "DOE<<JOHN",
+"nationality": "IND",
+"date_of_birth": "1995-05-20",
+"expiry_date": "2030-05-19",
+"sex": "M",
+"mrz": [
+"P<INDDOE<<JOHN<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<",
+"P1234567<1IND9505209M3005198<<<<<<<<<<<<<<01"
+],
+
+"optional": {
+"date_of_issue": null,
+"place_of_birth": null,
+"place_of_issue": null,
+"personal_number": null,
+"issuing_country": "IND",
+"ocr_confidence": null,
+"mrz_confidence": null,
+"image_quality": null,
+"source_image_id": null
+}
+}

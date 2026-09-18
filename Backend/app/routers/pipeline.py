@@ -1,3 +1,15 @@
+"""
+Orchestration layer: combines outputs from all 4 modules into one final
+document risk assessment. This is the single endpoint your frontend will
+likely call for the "full screening" flow, as opposed to hitting each
+module's endpoint separately.
+
+STATUS: skeleton. Wire in Module 1/2/3 calls as your teammates finish them.
+Their functions should live in app/services/ocr/, app/services/validation/,
+app/services/tampering/ respectively — import and call them here, the same
+way this file will call face_verification's services.
+"""
+
 from fastapi import APIRouter, UploadFile, File, Form
 from pydantic import BaseModel
 
@@ -19,14 +31,24 @@ async def screen_document(
     live_frames: list[UploadFile] = File(..., description="Webcam frames for liveness+face match"),
     challenge: str = Form(...),
 ):
-   
-    # TODO: call OCR service here
+    """
+    Full flow (to be wired up):
+    1. Module 1 (OCR) -> extract fields
+    2. Module 2 (Validation) -> check fields against rules/DB
+    3. Module 3 (Tampering) -> check document image for tampering
+    4. Module 4 (Face verification) -> this module, already working
+    5. Combine all 4 risk contributions into one overall_risk_score
+
+    For now, only step 4 is real — the rest are stubbed so the endpoint
+    shape is stable and the frontend/teammates can build against it early.
+    """
+    # TODO (P1): call OCR service here
     ocr_result = {"status": "not_yet_implemented"}
 
-    # TODO : call validation service here
+    # TODO (P2/P3): call validation service here
     validation_result = {"status": "not_yet_implemented"}
 
-    # TODO : call tampering detection service here
+    # TODO (P1): call tampering detection service here
     tampering_result = {"status": "not_yet_implemented"}
 
     # Module 4 — already implemented, reuse the same logic as /face-verification/verify
@@ -54,7 +76,7 @@ async def screen_document(
         face_risk = round(20.0 * (1 - match_result.similarity), 2) if match_result.matched else 75.0
 
     # TODO: once modules 1-3 are real, combine their risk contributions here
-   
+    # e.g. overall = weighted_avg(ocr_risk, validation_risk, tampering_risk, face_risk)
     overall_risk_score = face_risk
 
     final_decision = "REVIEW REQUIRED" if overall_risk_score > 50 else "LOW RISK"

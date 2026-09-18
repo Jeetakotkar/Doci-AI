@@ -1,0 +1,20 @@
+{
+  "document_type": "VISA",
+  "visa_number": "V12345678",
+  "visa_type": "TOURIST",
+  "issue_date": "2026-01-01",
+  "valid_from": "2026-01-01",
+  "expiry_date": "2026-12-31",
+  "entry_type": "MULTIPLE",
+  "stay_duration_days": 90,
+  "passport_number": "P1234567",
+  "name": "DOE<<JOHN",
+  "nationality": "IND",
+
+  "passport_data": {
+    "passport_number": "P1234567",
+    "name": "DOE<<JOHN",
+    "nationality": "IND",
+    "expiry_date": "2030-05-19"
+  }
+}

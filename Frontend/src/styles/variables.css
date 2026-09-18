@@ -1,0 +1,45 @@
+:root {
+  /* ---- Color: "verification desk" palette ---- */
+  --ink: #12171b;          /* near-black, blue-slate cast — sidebar / authority */
+  --ink-soft: #1c2329;
+  --paper: #eceeea;        /* cool neutral paper — main working surface */
+  --paper-raised: #f6f7f5; /* card surface, slightly lighter than paper */
+  --slate: #5c6670;        /* secondary text */
+  --slate-dim: #8b939b;
+  --line: #d7dad5;         /* hairline borders on paper */
+  --line-dark: #2b333a;    /* hairline borders on ink */
+
+  --verified: #1b7a5a;     /* pass / trusted */
+  --verified-soft: #dcece4;
+  --flagged: #ab3a20;      /* fail / fraud signal */
+  --flagged-soft: #f2ddd6;
+  --pending: #b07f1f;      /* warning / manual review */
+  --pending-soft: #f1e6cd;
+  --focus: #2f5fd6;        /* primary action / links */
+
+  /* ---- Type ---- */
+  --font-display: 'Archivo', 'Arial Narrow', sans-serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  --step--1: 0.8125rem;
+  --step-0: 0.9375rem;
+  --step-1: 1.125rem;
+  --step-2: 1.375rem;
+  --step-3: 1.75rem;
+  --step-4: 2.25rem;
+  --step-5: 3rem;
+
+  /* ---- Space ---- */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+  --sp-8: 64px;
+
+  --radius: 3px;
+  --sidebar-w: 248px;
+}

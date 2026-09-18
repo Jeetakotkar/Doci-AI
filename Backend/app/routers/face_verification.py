@@ -15,7 +15,20 @@ async def verify_identity(
     live_frames: list[UploadFile] = File(..., description="Sequence of webcam frames captured during the liveness challenge (10-15 frames recommended)"),
     challenge: ChallengeTypeSchema = Form(..., description="Which challenge the frontend asked the user to perform"),
 ):
-   
+    """
+    Main Module 4 endpoint.
+
+    Frontend flow:
+    1. Get document_face image (either cropped by Module 1's OCR/face-detect step,
+       or send the full doc image — DeepFace will find the face itself).
+    2. Randomly pick a challenge (blink or head_turn), tell the user what to do.
+    3. Capture ~10-15 webcam frames over ~1.5-2 seconds while user performs it.
+    4. POST everything here as multipart/form-data.
+
+    Order of operations matters: we check liveness FIRST. If liveness fails,
+    we don't even bother running face match — a spoofed liveness attempt is
+    already grounds for rejection regardless of whether the photo looks similar.
+    """
     # --- Load document face image ---
     try:
         doc_bytes = await document_face.read()

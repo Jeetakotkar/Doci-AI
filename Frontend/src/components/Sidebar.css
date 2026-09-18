@@ -1,0 +1,133 @@
+.sidebar {
+  width: var(--sidebar-w);
+  min-width: var(--sidebar-w);
+  background: var(--ink);
+  color: var(--paper);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  padding: var(--sp-5) var(--sp-4);
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding-bottom: var(--sp-5);
+  margin-bottom: var(--sp-5);
+  border-bottom: 1px solid var(--line-dark);
+}
+
+.brand-mark {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 500;
+  border: 1px solid var(--slate-dim);
+  color: var(--paper);
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius);
+  flex-shrink: 0;
+}
+
+.brand-name {
+  font-family: var(--font-display);
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.brand-sub {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--slate-dim);
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.sidebar-link {
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  color: var(--slate-dim);
+  font-size: var(--step--1);
+  font-weight: 500;
+  transition: background 0.15s ease, color 0.15s ease;
+  border-left: 2px solid transparent;
+}
+
+.sidebar-link:hover {
+  color: var(--paper);
+  background: var(--ink-soft);
+}
+
+.sidebar-link.active {
+  color: var(--paper);
+  background: var(--ink-soft);
+  border-left: 2px solid var(--focus);
+}
+
+.sidebar-footer {
+  border-top: 1px solid var(--line-dark);
+  padding-top: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.sidebar-user {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.user-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--ink-soft);
+  border: 1px solid var(--slate-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.user-name {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--paper);
+}
+
+.user-role {
+  font-size: 11px;
+  color: var(--slate-dim);
+}
+
+.sidebar-logout {
+  background: transparent;
+  border: 1px solid var(--line-dark);
+  color: var(--slate-dim);
+  border-radius: var(--radius);
+  padding: 8px 12px;
+  font-size: var(--step--1);
+  text-align: left;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.sidebar-logout:hover {
+  color: var(--paper);
+  border-color: var(--slate-dim);
+}
