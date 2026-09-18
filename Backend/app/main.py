@@ -13,22 +13,41 @@ app = FastAPI(
     version="1.0.0",
 )
 
+# Frontend URLs allowed to access the backend
+origins = [
+    "http://localhost:5173",          # Local React
+    "https://doci-ai-psi.vercel.app", # Vercel frontend
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],   # TODO: restrict to frontend's real origin before final demo
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-# --- Mount each module's router ---
-app.include_router(face_verification.router)   
-app.include_router(validation.router)          
-app.include_router(ocr.router)                 
-app.include_router(tampering.router)           
-app.include_router(pipeline.router)            
+# ---------- Routers ----------
+app.include_router(face_verification.router)
+app.include_router(validation.router)
+app.include_router(ocr.router)
+app.include_router(tampering.router)
+app.include_router(pipeline.router)
+
+
+@app.get("/")
+def root():
+    return {
+        "message": "Doci-AI Backend is running",
+        "docs": "/docs",
+        "health": "/health",
+    }
 
 
 @app.get("/health")
 def health_check():
-    return {"status": "ok", "service": "doci-ai-backend"}
+    return {
+        "status": "ok",
+        "service": "doci-ai-backend",
+        "version": "1.0.0",
+    }
