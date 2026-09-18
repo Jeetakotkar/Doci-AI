@@ -1,4 +1,4 @@
-from app.services.validation.module2.schemas import RuleDefinition, Severity
+from module2.schemas import RuleDefinition, Severity
 
 
 PERMIT_RULES = [

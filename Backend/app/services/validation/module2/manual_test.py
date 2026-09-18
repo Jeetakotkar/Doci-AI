@@ -2,7 +2,7 @@ import json
 import sys
 from pathlib import Path
 
-from app.services.validation.module2.pipeline import run_validation
+from module2.pipeline import run_validation
 
 
 DEFAULT_INPUT_FILE = Path(__file__).parent / "test_input.json"

@@ -14,14 +14,14 @@ It does NOT:
 
 from datetime import date, datetime
 
-from app.services.validation.module2.schemas import (
+from module2.schemas import (
     CheckStatus,
     OverallStatus,
     Severity,
     ValidationCheck,
 )
 
-from app.services.validation.module2.rules.visa_rules import VISA_RULES
+from module2.rules.visa_rules import VISA_RULES
 
 
 class VisaValidator:

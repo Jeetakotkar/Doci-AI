@@ -1,6 +1,6 @@
 import unittest
 
-from app.services.validation.module2.pipeline import run_validation
+from module2.pipeline import run_validation
 
 
 class TestPipeline(unittest.TestCase):
@@ -67,6 +67,37 @@ class TestPipeline(unittest.TestCase):
             0
         )
 
+    def test_aadhaar(self):
+        input_data = {
+            "document_id": "DOC-AADHAAR-001",
+            "document_type": "AADHAAR",
+            "status": "SUCCESS",
+            "ocr_confidence": 0.96,
+            "fields": {
+                "aadhaar_number": "234567890124",
+                "name": "JOHN DOE",
+                "date_of_birth": "1995-05-20",
+                "year_of_birth": "1995",
+                "gender": "M",
+                "address": "Pune, Maharashtra, India",
+                "pincode": "411001",
+                "state": "Maharashtra",
+                "document_representation": "PHYSICAL"
+            }
+        }
+
+        result = run_validation(input_data)
+
+        self.assertEqual(result["document_type"], "AADHAAR")
+
+        self.assertIn(
+            result["overall_status"],
+            ["VALID", "REVIEW", "INVALID"]
+        )
+
+        self.assertIn("summary", result)
+        self.assertIn("total_checks", result["summary"])
+        self.assertGreater(len(result["checks"]), 0)
 
 if __name__ == "__main__":
     unittest.main()

@@ -1,0 +1,17 @@
+{
+  "document_id": "DOC-AADHAAR-001",
+  "document_type": "AADHAAR",
+  "status": "SUCCESS",
+  "ocr_confidence": 0.96,
+  "fields": {
+    "aadhaar_number": "234567890124",
+    "name": "JOHN DOE",
+    "date_of_birth": "1995-05-20",
+    "year_of_birth": "1995",
+    "gender": "M",
+    "address": "Pune, Maharashtra, India",
+    "pincode": "411001",
+    "state": "Maharashtra",
+    "document_representation": "AADHAAR"
+  }
+}

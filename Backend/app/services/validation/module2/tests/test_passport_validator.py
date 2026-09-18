@@ -1,4 +1,4 @@
-from app.services.validation.module2.validators.passport_validator import PassportValidator
+from module2.validators.passport_validator import PassportValidator
 
 
 def test_valid_passport():
