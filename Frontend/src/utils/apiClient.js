@@ -2,8 +2,10 @@
 // Returns the SAME shape mockEngine.runScreening() did — { checks, trustScore, verdict } —
 // so NewScreening.jsx, Report.jsx, History.jsx etc. need no other changes.
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || 'http://127.0.0.1:8000';
-
+const API_BASE =
+  import.meta.env.VITE_API_BASE_URL ||
+  "https://doci-ai-backend.onrender.com";
+  
 async function postForm(path, formData) {
   const res = await fetch(`${API_BASE}${path}`, {
     method: 'POST',
